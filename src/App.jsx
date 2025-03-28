@@ -7,9 +7,7 @@ import Messages from './components/Messages';
 import CallLog from './components/CallLog';
 import Settings from './components/Settings';
 import Conversation from './components/Conversation';
-
-
-
+import Maps from './components/Maps';
 
 
 function App() {
@@ -22,6 +20,7 @@ function App() {
   <Route path="/calls" element={<CallLog />} />
   <Route path="/settings" element={<Settings />} />
   <Route path="/messages/:id" element={<Conversation />} />
+  <Route path="/maps" element={<Maps />} />
 </Routes>
 
     </div>

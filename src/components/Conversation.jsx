@@ -27,6 +27,15 @@ function Conversation() {
             ))}
           </div>
         </div>
+        <div className="message-reply-bar">
+          <input
+            type="text"
+            className="message-input"
+            placeholder="iMessage"
+            disabled
+          />
+          <button className="send-button" disabled>➤</button>
+        </div>
       </div>
     </div>
   );
