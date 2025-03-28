@@ -1,4 +1,4 @@
-
+// ✅ SETTINGS.JSX
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import StatusBar from './StatusBar';
@@ -22,8 +22,7 @@ function Settings() {
     <div className="phone-frame">
       <div className="phone-screen">
         <StatusBar />
-        <Link to="/" className="back-link">🔙</Link>
-        <div style={{ padding: '20px', color: '#f1f1f1' }}>
+        <div style={{ padding: '20px' }}>
           <h2>⚙️ Réglages verrouillés</h2>
           {!unlocked ? (
             <form onSubmit={handleSubmit} style={{ marginTop: '20px' }}>
@@ -66,6 +65,9 @@ function Settings() {
               <p>Le silence est leur faiblesse...<br />Active ton micro seulement si tu es sûr de pouvoir t’enfuir.</p>
             </div>
           )}
+          <div style={{ marginTop: '30px' }}>
+            <Link to="/">🔙 Retour</Link>
+          </div>
         </div>
       </div>
     </div>
@@ -73,3 +75,4 @@ function Settings() {
 }
 
 export default Settings;
+
