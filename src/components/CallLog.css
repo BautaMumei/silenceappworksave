@@ -1,0 +1,76 @@
+.calllog-screen {
+    padding: 20px;
+    font-family: var(--font);
+    background-color: var(--bg);
+    color: var(--text);
+    min-height: 100%;
+  }
+  
+  .calllog-title {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--accent);
+  }
+  
+  .calllog-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .call-item {
+    background-color: #2c2c2c;
+    border-radius: 10px;
+    padding: 12px 15px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+  }
+  
+  .call-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+  }
+  
+  .call-name {
+    font-weight: bold;
+    color: var(--accent);
+  }
+  
+  .call-time {
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+  
+  .call-type {
+    font-size: 13px;
+    color: var(--text);
+  }
+  
+  .call-item.manqué .call-type {
+    color: #f87171;
+  }
+  
+  .call-item.reçu .call-type {
+    color: #34d399;
+  }
+  
+  .call-item.appelé .call-type {
+    color: #93c5fd;
+  }
+  
+  .call-item.masqué .call-type {
+    color: #fcd34d;
+  }
+  
+  .back-link {
+    display: block;
+    margin-top: 30px;
+    text-align: center;
+    text-decoration: none;
+    color: var(--text-muted);
+    font-weight: bold;
+  }
+  

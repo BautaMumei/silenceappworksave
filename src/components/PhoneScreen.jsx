@@ -1,7 +1,25 @@
-import React from 'react';
+
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 function PhoneScreen() {
+  const [time, setTime] = useState('');
+
+  useEffect(() => {
+    const updateTime = () => {
+      const now = new Date();
+      const t = now.toLocaleTimeString('fr-FR', {
+        hour: '2-digit',
+        minute: '2-digit',
+      });
+      setTime(t);
+    };
+
+    updateTime();
+    const interval = setInterval(updateTime, 10000);
+    return () => clearInterval(interval);
+  }, []);
+
   const now = new Date();
   const date = now.toLocaleDateString('fr-FR', {
     weekday: 'long',
@@ -9,47 +27,39 @@ function PhoneScreen() {
     month: 'long',
   });
 
-  const time = now.toLocaleTimeString('fr-FR', {
-    hour: '2-digit',
-    minute: '2-digit',
-  });
-
   return (
     <div className="phone-frame">
-      <div className="phone-screen">
-        
-        {/* Barre de statut */}
-        <div className="status-bar">
-          <span className="time">12:42</span>
-          <div className="status-icons">
-            <span>📶</span>
-            <span>📡</span>
-            <span>🔋</span>
+      <div className="phone-screen home-screen">
+        <div className="status-bar-modern">
+          <span className="status-time">{time}</span>
+          <div className="status-icons-modern">
+            <span className="icon">🅱️</span>
+            <span className="icon">📶</span>
+            <span className="icon">🔋</span>
           </div>
         </div>
 
-        {/* Date et Heure */}
         <div className="clock-block">
           <div className="clock-date">{date}</div>
           <div className="clock-time">{time}</div>
         </div>
 
-        {/* Galerie seule */}
         <div className="single-app-row">
-          <Link to="/gallery" className="app gallery-app">
-            <span className="app-icon">🖼️</span>
-            <span className="app-label">Galerie</span>
+          <Link to="/gallery" className="dock-app">
+            <div className="dock-button">
+              <span className="app-icon">🖼️</span>
+              <span className="app-label">Galerie</span>
+            </div>
           </Link>
         </div>
 
-        {/* Barre d'accès rapide */}
         <div className="dock">
-          <div className="dock-app">
+          <Link to="/calls" className="dock-app">
             <div className="dock-button">
               <span className="app-icon">📞</span>
               <span className="app-label">Appels</span>
             </div>
-          </div>
+          </Link>
 
           <Link to="/messages" className="dock-app">
             <div className="dock-button">
@@ -58,12 +68,12 @@ function PhoneScreen() {
             </div>
           </Link>
 
-          <div className="dock-app">
+          <Link to="/settings" className="dock-app">
             <div className="dock-button">
               <span className="app-icon">⚙️</span>
               <span className="app-label">Réglages</span>
             </div>
-          </div>
+          </Link>
 
           <div className="dock-app">
             <div className="dock-button">
